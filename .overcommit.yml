@@ -1,0 +1,17 @@
+CommitMsg:
+  EmptyMessage:
+    enabled: true
+
+PreCommit:
+  RuboCop:
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop']
+    on_warn: fail
+  Brakeman:
+    enabled: true
+    command: ['bundle', 'exec', 'brakeman']
+
+PrePush:
+  RSpec:
+    enabled: true
+    command: ['bundle', 'exec', 'rspec', 'spec/']
