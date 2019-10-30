@@ -34,5 +34,7 @@ module Raidbuddy
       g.routing_specs false
       g.factory_bot false
     end
+
+    config.active_record.schema_format = :sql
   end
 end
