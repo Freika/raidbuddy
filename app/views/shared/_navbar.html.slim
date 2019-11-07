@@ -1,0 +1,16 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to 'RaidBuddy', root_path, class: 'navbar-brand'
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      - if signed_in?
+        li.nav-item.dropdown
+          a#navbarSignedOutDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+            | Profile
+          .dropdown-menu aria-labelledby="navbarSignedOutDropdown"
+            => link_to 'Settings', edit_user_registration_path, class: 'dropdown-item'
+            => link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', data: { method: :delete }
+      - else
+        = link_to 'Sign in', new_user_session_path, class: 'dropdown-item'
+        = link_to 'Sign up', new_user_registration_path, class: 'dropdown-item'
